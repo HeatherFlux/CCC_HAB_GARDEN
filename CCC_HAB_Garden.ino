@@ -9,6 +9,7 @@ EthernetClient client; //define 'client' as object
 String data;
 String humdata;
 float temp;
+float tempf;
 float humi;
 boolean connecting = false;
 
@@ -32,6 +33,7 @@ void setup() {
 void loop() {
   // read your sensors
   temp = dht.readTemperature();
+  tempf = dht.readTemperature(true);
   humi = dht.readHumidity();
   
   //begin the loops
@@ -54,6 +56,8 @@ void loop() {
 	  Serial.println("disconnecting.");
           Serial.print("Temperature Sent :");
           Serial.print(temp); //print sent value to serial monitor
+          Serial.print(","); //print sent value to serial monitor
+          Serial.print(tempf); //print sent value to serial monitor
 	  client.stop(); 
           connecting = false; 
           data = ""; //data reset
@@ -92,6 +96,8 @@ void getdatatemp(){
   data+="";
   data+="GET /pushingbox?devid=vA9E6B4A30C33313&tempData="; //GET request query to pushingbox API
   data+=temp;
+  data+=",";
+  data+=tempf;
   data+=" HTTP/1.1";
 }
 void sendDatatemp(){
@@ -110,7 +116,7 @@ void getdatahum(){
 }
 void sendDatahum(){
   Serial.println("connected");
-  client.println(data);
+  client.println(humdata);
   client.println("Host: api.pushingbox.com");
   client.println("Connection: close");
   client.println();
