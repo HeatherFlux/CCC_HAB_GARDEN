@@ -4,7 +4,8 @@ Wifi mac addr: 0x08 0x00 0x28 0x58 0x8C 0x7A
 
 ##For Google
 Website:  
-spreadsheets.google.com/tq?&tqx=out:html&tq=&key=16IQP2zjOqVH1qWQJ1IGiygshhNX7mFOuPMxMCBTza-c&gid=530749950
+https://spreadsheets.google.com/tq?&tqx=out:html&tq=&key=16IQP2zjOqVH1qWQJ1IGiygshhNX7mFOuPMxMCBTza-c&gid=530749950
+
 
 ##For Temperature
 Push:  
