@@ -15,18 +15,15 @@ function doGet(e) {
     var sheet = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/16IQP2zjOqVH1qWQJ1IGiygshhNX7mFOuPMxMCBTza-c/edit#gid=530749950').getActiveSheet();
     var newRow = sheet.getLastRow();
     var rowData = [];
-    //var waktu = new Date();
+   
     for (var param in e.parameter) {
       Logger.log('In for loop, param='+param);
       var value = stripQuotes(e.parameter[param]);
-      //Logger.log(param + ':' + e.parameter[param]);
+      
       switch (param) {
         case 'tempfData': //Parameter
           rowData[0] = value; //Value in column B
           break;
-      //case 'column_C':
-        //rowData[2] = value;
-        //break;
         default:
           result = "unsupported parameter";
       }
